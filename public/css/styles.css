@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body , input{
+  font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+}
+.container::before{
+  content: '';
+  position: absolute;
+  width: 2000px;
+  height: 2000px;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, #4481eb, #04befe);
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: 1.8s ease-in-out;
+}
+
+.forms-container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signin-signup{
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
+  transition: 1s .7s ease-in-out;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 0 5rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  transition: .2s .7s ease-in-out;
+}
+
+form.signin{
+  z-index: 2;
+}
+form.signup{
+  z-index: 1;
+  opacity: 0;
+}
+
+.form-title{
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.input-field{
+  max-width: 380px;
+  width: 100%;
+  height: 55px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  border-radius: 55px;
+  padding: 0 0.4rem;
+}
+.input-field i{
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  font-size: 1.1rem;
+}
+.input-field input{
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.input-field input::placeholder{
+  color: #aaa;
+  font-weight: 500;
+}
+
+.btn{
+  width: 150px;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background-color: #5995fd;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btn:hover{
+  background-color: #4d84e2;
+}
+
+.login-text{
+  padding: 0.7rem 0;
+  font-size: 1rem;
+}
+
+.social-box{
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon{
+  width: 45px;
+  height: 45px;
+  border: 1px solid #333;
+  margin: 0 0.45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #333;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.social-icon:hover{
+  color: #4481eb;
+  border-color: #4481eb;
+}
+
+.panels-container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.panel{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 20;
+}
+
+.left-panel{
+  padding: 3rem 17% 2rem 12%;
+  pointer-events: all;
+}
+
+.right-panel{
+  padding: 3rem 12% 2rem 17%;
+  pointer-events: none;
+}
+
+.panel .content{
+  color: #fff;
+  transition: .9s .6s ease-in-out;
+}
+
+.panel h3{
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.panel p{
+  font-size: .95rem;
+  padding: .7rem 0;
+}
+
+.transparent{
+  margin: 0;
+  background: none;
+  border: 2px solid #fff;
+  width: 130px;
+  height: 40px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.image{
+  width: 100%;
+  transition: 1.2s .5s ease-in-out;
+}
+
+.right-panel .content , .right-panel img{
+  transform: translateX(800px);
+}
+
+
+/* Animation */
+.container.signin-animate::before{
+  transform: translate(100%, -50%);
+  right: 50%;
+}
+
+.container.signin-animate .left-panel img,
+.container.signin-animate .left-panel .content{
+  transform: translateX(-800px);
+}
+
+.container.signin-animate .right-panel img,
+.container.signin-animate .right-panel .content{
+  transform: translateX(0px);
+}
+
+.container.signin-animate .left-panel {
+  pointer-events: none;
+}
+
+.container.signin-animate .right-panel{
+  pointer-events: all;
+}
+
+.container.signin-animate .signin-signup{
+  left: 25%;
+}
+
+.container.signin-animate form.signin{
+  z-index: 1;
+  opacity: 0
+}
+
+.container.signin-animate form.signup{
+  z-index: 2;
+  opacity: 1;
+}
+
+
+/* Media View */
+@media (max-width: 56.25rem) {
+  .container{
+    min-height: 800px;
+    height: 100vh;
+  }
+
+  .container::before{
+    width: 1500px;
+    height: 1500px;
+    left: 30%;
+    bottom: 70%;
+    transform: translateX(-50%);
+    right: initial;
+    top: initial;
+    transition: 2s ease-in-out;
+  }
+
+  .signin-signup{
+    width: 100%;
+    left: 50%;
+    top: 95%;
+    transform: translate(-50% , -100%);
+    transition: 1s .8s ease-in-out;
+  }
+
+  .panels-container{
+    z-index: 20;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+  }
+  .panel .content{
+    padding-right: 15%;
+    transition: .9s .8s ease-in-out;
+  }
+  .panel h3{
+    font-size: 1.2rem;
+  }
+  .panel p{
+    font-size: .7rem;
+    padding: .5rem 0;
+  }
+
+  .transparent{
+    width: 110px;
+    height: 40px;
+    font-size:  .7rem;
+  }
+
+  .image{
+    width: 200px;
+    transition: .9s .6s ease-in-out;
+  }
+
+  .left-panel{
+    grid-row: 1/2;
+  }
+  .right-panel{
+    grid-row: 3/4;
+  }
+
+  .right-panel .content , .right-panel img{
+    transform: translateY(500px);
+  }
+
+  .container.signin-animate::before{
+    transform: translate(-50%, 100%);
+    bottom: 30%;
+    right: initial;
+  }
+
+  .container.signin-animate .left-panel img,
+  .container.signin-animate .left-panel .content{
+    transform: translateY(-300px);
+  }
+
+  .container.signin-animate .signin-signup{
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+}
+
+@media (max-width: 35.625rem) {
+
+  form{
+    padding: 0 1.5rem;
+  }
+
+  .image{
+    display: none;
+  }
+
+  .panel .content{
+    padding: .5rem 1rem;
+  }
+
+  .container::before{
+    bottom: 70%;
+    left: 50%;
+  }
+  .container.signin-animate::before{
+    bottom: 30%;
+    left: 50%;
+  }
+
+}
